@@ -2,6 +2,7 @@ package com.example.multipleactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button signIn;
+    private Button signin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("==>", "MainActivity created!");
 
-        signIn.findViewById(R.id.signin_button);
-        signIn.setOnClickListener(new View.OnClickListener() {
+
+        signin = findViewById(R.id.signin_button);
+        signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("==>", "Button clicked!");
+                Log.d("==>", "Signed in!");
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
     }
